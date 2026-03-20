@@ -166,9 +166,9 @@ nav {
   align-items: center;
 }
 .nav-inner {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  gap: 16px;
   width: 100%;
   max-width: 1160px;
   margin: 0 auto;
@@ -177,7 +177,8 @@ nav {
 .nav-logo {
   display: inline-flex;
   align-items: center;
-  flex-shrink: 0;
+  justify-self: start;
+  align-self: center;
 }
 .nav-logo img { height: 26px; width: auto; display: block; }
 .logo-light { display: none; }
@@ -188,7 +189,6 @@ nav {
   align-items: center;
   gap: 32px;
   list-style: none;
-  flex: 1;
   justify-content: center;
 }
 .nav-links a {
@@ -199,6 +199,13 @@ nav {
   transition: color 0.2s;
 }
 .nav-links a:hover { color: var(--text); }
+.nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  justify-self: end;
+  align-self: center;
+}
 .nav-cta {
   background: var(--accent) !important;
   color: var(--bg) !important;
@@ -273,8 +280,11 @@ nav {
 .mobile-menu a:hover { color: var(--text); }
 .mobile-menu .nav-cta { border-bottom: none; text-align: center; padding: 12px 18px !important; }
 @media (max-width: 768px) {
+  .nav-inner { grid-template-columns: auto 1fr auto; }
   .nav-links { display: none; }
   .nav-hamburger { display: flex; }
+  .nav-controls .lang-toggle,
+  .nav-controls .theme-toggle { display: none; }
 }
 
 /* ── HERO ── */
@@ -772,11 +782,12 @@ footer {
   gap: 48px;
   margin-bottom: 40px;
 }
-.footer-brand .nav-logo {
-  font-size: 22px;
+.footer-logo {
+  display: inline-flex;
+  align-items: center;
   margin-bottom: 14px;
-  display: block;
 }
+.footer-logo img { height: 22px; width: auto; display: block; }
 .footer-tagline {
   font-size: 14px;
   color: var(--muted);

@@ -100,6 +100,13 @@
 
     /* ── Fade-in on scroll ── */
     var fadeEls = document.querySelectorAll('.fade-in');
+
+    function forceVisible() {
+      document.querySelectorAll('.fade-in:not(.visible)').forEach(function (el) {
+        el.classList.add('visible');
+      });
+    }
+
     if ('IntersectionObserver' in window) {
       var observer = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry, i) {
@@ -108,11 +115,14 @@
             observer.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.12 });
+      }, { threshold: 0.05 });
       fadeEls.forEach(function (el) { observer.observe(el); });
     } else {
-      fadeEls.forEach(function (el) { el.classList.add('visible'); });
+      forceVisible();
     }
+
+    /* Safety net: force all remaining invisible elements visible after 2.5s */
+    setTimeout(forceVisible, 2500);
 
     /* ── Mobile menu ── */
     var hamburger  = document.getElementById('hamburger');

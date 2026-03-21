@@ -179,9 +179,9 @@ nav {
   flex-shrink: 0;
 }
 .nav-logo img { height: 26px; width: auto; display: block; }
-/* Single white SVG — inverted to black in light mode */
+/* Single white SVG — brightness(0) works reliably with complex SVG clipPaths */
 .site-logo { filter: none; transition: filter 0.2s; }
-[data-theme="light"] .site-logo { filter: invert(1); }
+[data-theme="light"] .site-logo { filter: brightness(0); }
 .nav-links {
   flex: 1;
   display: flex;

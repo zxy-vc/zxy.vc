@@ -88,9 +88,9 @@
     });
 
     /* ── Language ── */
+    /* Default: always ES (LatAm audience). Only override if user explicitly saved EN. */
     var savedLang = localStorage.getItem(LANG_KEY);
-    var sysLang   = (navigator.language || 'es').toLowerCase().startsWith('es') ? 'es' : 'en';
-    applyLang(savedLang || sysLang);
+    applyLang(savedLang || 'es');
 
     document.querySelectorAll('.lang-toggle').forEach(function (btn) {
       btn.addEventListener('click', function () {

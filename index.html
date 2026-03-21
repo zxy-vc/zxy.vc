@@ -36,9 +36,7 @@
   <!-- Preload hero image -->
   <link rel="preload" as="image" href="assets/Pictures/giorgio-parravicini-12IHVEFRacQ-unsplash.jpg" />
 
-  <link rel="stylesheet" href="style.css?v=4" />
-
-  <!-- Anti-flash: aplica tema antes del primer render -->
+  <!-- Anti-flash: debe correr ANTES del CSS para que data-theme esté seteado cuando se calculen los estilos -->
   <script>
     (function() {
       var stored = localStorage.getItem('zxy-theme');
@@ -46,6 +44,8 @@
       document.documentElement.setAttribute('data-theme', theme);
     })();
   </script>
+
+  <link rel="stylesheet" href="style.css?v=5" />
 </head>
 <body>
 
@@ -473,6 +473,6 @@
   </script>
 
 
-  <script src="landing.js?v=4"></script>
+  <script src="landing.js?v=5"></script>
 </body>
 </html>

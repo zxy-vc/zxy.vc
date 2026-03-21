@@ -168,6 +168,7 @@ nav {
 .nav-inner {
   display: flex;
   align-items: center;
+  gap: 16px;
   width: 100%;
   max-width: 1160px;
   margin: 0 auto;
@@ -177,11 +178,17 @@ nav {
   display: inline-flex;
   align-items: center;
   flex-shrink: 0;
+  min-width: 136px;
 }
-.nav-logo img { height: 26px; width: auto; display: block; }
-/* Single white SVG — brightness(0) works reliably with complex SVG clipPaths */
+.nav-logo img { height: 26px; width: 136px; display: block; }
+/* Single white SVG — brightness(0) converts to black reliably */
 .site-logo { filter: none; transition: filter 0.2s; }
+/* Primary: JS sets data-theme before CSS loads (script moved before link) */
 [data-theme="light"] .site-logo { filter: brightness(0); }
+/* Fallback: pure CSS in case JS hasn't run yet */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) .site-logo { filter: brightness(0); }
+}
 .nav-links {
   flex: 1;
   display: flex;

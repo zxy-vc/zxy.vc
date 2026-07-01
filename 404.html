@@ -1,18 +1,98 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ZXY Ventures</title>
-  <!-- GitHub Pages SPA redirect: preserves path and query string -->
-  <script>
-    // Encode the path into the query string so index.html can decode it
-    var l = window.location;
-    l.replace(
-      l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + l.pathname.split('/').slice(0, 1).join('/') +
-      '/?/' + l.pathname.slice(1) + (l.search ? '&' + l.search.slice(1) : '') + l.hash
-    );
-  </script>
+<meta charset="UTF-8"></meta>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+<script>
+  /* modo claro = default público; solo respetamos preferencia guardada (BRAND §15) */
+  try { var t = localStorage.getItem('zxy-theme'); if (t === 'dark') document.documentElement.setAttribute('data-theme','dark'); } catch (e) {}
+</script>
+<title>404 — ZXY Ventures</title>
+<meta name="robots" content="noindex"></meta>
+<meta name="theme-color" content="#FCFCFB"></meta>
+<!-- favicon: tile zxy mono, tinta sobre fondo, radio 20% (BRAND §05) -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23111111'/%3E%3Ctext x='50' y='56' text-anchor='middle' font-family='ui-monospace,Menlo,monospace' font-size='34' font-weight='600' letter-spacing='-2' fill='%23FCFCFB'%3Ezxy%3C/text%3E%3C/svg%3E"></link>
+<link rel="preconnect" href="https://fonts.googleapis.com"></link>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"></link>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet"></link>
+<style>
+  /* ── Tokens (consume zxy-brand.css · BRAND §06) ─────────── */
+  :root, :root[data-theme="light"] {
+    --bg: #FCFCFB; --card: #FFFFFF; --ink: #111111;
+    --dim: #6E6E6E; --faint: #A8A8A4; --line: rgba(17,17,17,0.10);
+  }
+  :root[data-theme="dark"] {
+    --bg: #0A0A0A; --card: #111111; --ink: #F2F2F2;
+    --dim: #8E8E8E; --faint: #4A4A4A; --line: rgba(242,242,242,0.10);
+  }
+  :root {
+    --sans: "Geist", "Helvetica Neue", Helvetica, sans-serif;
+    --mono: "Geist Mono", ui-monospace, monospace;
+    --col: 800px;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg); color: var(--ink); min-height: 100vh;
+    font-family: var(--sans); font-size: 16px; line-height: 1.6; font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    display: flex; flex-direction: column;
+  }
+  a { color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; text-decoration-color: var(--faint); }
+  a:hover { text-decoration-color: var(--ink); }
+  .container { max-width: var(--col); margin: 0 auto; padding: 0 36px; width: 100%; }
+
+  nav { border-bottom: 1px solid var(--line); }
+  .nav-inner { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; padding: 19px 0; }
+  .wordmark { font-size: 15px; letter-spacing: -0.01em; text-decoration: none; white-space: nowrap; }
+  .wordmark b { font-weight: 500; }
+  .wordmark span { font-weight: 300; color: var(--dim); }
+
+  main { flex: 1; display: flex; align-items: center; }
+  .eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.26em; text-transform: uppercase; color: var(--faint); margin: 0 0 26px; }
+  h1 {
+    font-size: clamp(40px, 6vw, 58px); font-weight: 300; line-height: 1.13;
+    letter-spacing: -0.03em; color: var(--dim); margin: 0; text-wrap: pretty;
+  }
+  h1 b { font-weight: 500; color: var(--ink); }
+  main p { margin: 28px 0 0; max-width: 540px; color: var(--dim); font-weight: 300; font-size: 17px; }
+  main a { font-family: var(--mono); font-size: 12px; }
+  .caret { display: inline-block; width: 0.5em; height: 0.95em; background: var(--ink); vertical-align: -0.08em; margin-left: 0.14em; }
+  @media (prefers-reduced-motion: no-preference) { .caret { animation: blink 1.1s step-end infinite; } }
+  @keyframes blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+
+  footer { border-top: 1px solid var(--line); }
+  .foot-inner { display: flex; justify-content: space-between; align-items: baseline; padding: 26px 0 60px; font-family: var(--mono); font-size: 11px; color: var(--faint); flex-wrap: wrap; gap: 10px; }
+  .foot-inner .left b { color: var(--dim); font-weight: 500; }
+  .foot-inner .sig { letter-spacing: 0.14em; }
+  .foot-inner .sig b { color: var(--dim); font-weight: 500; }
+
+  @media (max-width: 640px) { .container { padding: 0 24px; } }
+</style>
 </head>
-<body></body>
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <a class="wordmark" href="/"><b>ZXY</b> <span>Ventures</span></a>
+  </div>
+</nav>
+
+<main>
+  <div class="container">
+    <p class="eyebrow">404</p>
+    <h1>Esta página <b>no existe</b>.<span class="caret"></span></h1>
+    <p><a href="/">volver a zxy.vc →</a></p>
+  </div>
+</main>
+
+<footer>
+  <div class="container foot-inner">
+    <span class="left"><b>ZXY Ventures</b> · méxico · latam · © 2026</span>
+    <span class="sig">built on <b>zxy</b></span>
+  </div>
+</footer>
+
+</body>
 </html>

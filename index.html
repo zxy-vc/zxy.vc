@@ -1,516 +1,309 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ZXY Ventures — AI Venture Crafting · Agentic Venture Studio · LatAm</title>
-  <meta name="description" content="ZXY Ventures es un Agentic Venture Studio. Construimos empresas que son imposibles sin inteligencia artificial." />
+<meta charset="UTF-8"></meta>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+<script>
+  /* modo claro = default público; solo respetamos preferencia guardada (BRAND §15) */
+  try { var t = localStorage.getItem('zxy-theme'); if (t === 'dark') document.documentElement.setAttribute('data-theme','dark'); } catch (e) {}
+</script>
+<title>ZXY Ventures — We build, operate, and create value with AI</title>
+<meta name="description" content="Construimos y operamos compañías que son imposibles sin inteligencia artificial."></meta>
+<meta name="theme-color" content="#FCFCFB"></meta>
+<link rel="canonical" href="https://zxy.vc/"></link>
+<!-- Open Graph / social (BRAND §08, §13) -->
+<meta property="og:type" content="website"></meta>
+<meta property="og:url" content="https://zxy.vc/"></meta>
+<meta property="og:title" content="ZXY Ventures — We build, operate, and create value with AI"></meta>
+<meta property="og:description" content="Construimos y operamos compañías que son imposibles sin inteligencia artificial."></meta>
+<meta property="og:locale" content="es_MX"></meta>
+<!-- og:image 1200×630 — wordmark sobre --bg, placa zxy.vc (BRAND §13) -->
+<meta property="og:image" content="https://zxy.vc/og.png"></meta>
+<meta property="og:image:width" content="1200"></meta>
+<meta property="og:image:height" content="630"></meta>
+<meta name="twitter:card" content="summary_large_image"></meta>
+<meta name="twitter:image" content="https://zxy.vc/og.png"></meta>
+<!-- favicon: tile zxy mono, tinta sobre fondo, radio 20% (BRAND §05) -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23111111'/%3E%3Ctext x='50' y='56' text-anchor='middle' font-family='ui-monospace,Menlo,monospace' font-size='34' font-weight='600' letter-spacing='-2' fill='%23FCFCFB'%3Ezxy%3C/text%3E%3C/svg%3E"></link>
+<link rel="preconnect" href="https://fonts.googleapis.com"></link>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"></link>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet"></link>
+<style>
+  /* ── Tokens (consume zxy-brand.css · BRAND §06) ─────────── */
+  :root, :root[data-theme="light"] {
+    --bg: #FCFCFB; --card: #FFFFFF; --ink: #111111;
+    --dim: #6E6E6E; --faint: #A8A8A4; --line: rgba(17,17,17,0.10);
+  }
+  :root[data-theme="dark"] {
+    --bg: #0A0A0A; --card: #111111; --ink: #F2F2F2;
+    --dim: #8E8E8E; --faint: #4A4A4A; --line: rgba(242,242,242,0.10);
+  }
+  :root {
+    /* color = marcas hijas; ZXY vive en grises (BRAND §02b) */
+    --engrane: #D98E1F; --baw: #2E8F5B; --agents: #3B6FE0;
+    --sans: "Geist", "Helvetica Neue", Helvetica, sans-serif;
+    --mono: "Geist Mono", ui-monospace, monospace;
+    --col: 800px;
+  }
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="assets/ZXY Logos/ZXY_Ventures_Logo_02_White.svg" />
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+  body {
+    background: var(--bg); color: var(--ink);
+    font-family: var(--sans); font-size: 16px; line-height: 1.6; font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; text-decoration-color: var(--faint); }
+  a:hover { text-decoration-color: var(--ink); }
+  .container { max-width: var(--col); margin: 0 auto; padding: 0 36px; }
 
-  <!-- Canonical -->
-  <link rel="canonical" href="https://zxy.vc" />
+  /* ── Nav ────────────────────────────────────────────────── */
+  nav { border-bottom: 1px solid var(--line); position: sticky; top: 0; background: var(--bg); z-index: 10; }
+  .nav-inner { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; padding: 19px 0; }
+  .wordmark { font-size: 15px; letter-spacing: -0.01em; text-decoration: none; white-space: nowrap; }
+  .wordmark b { font-weight: 500; }
+  .wordmark span { font-weight: 300; color: var(--dim); }
+  .nav-right { display: flex; gap: 24px; align-items: baseline; }
+  .nav-links { display: flex; gap: 24px; }
+  .nav-links a { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; color: var(--dim); text-decoration: none; }
+  .nav-links a:hover { color: var(--ink); }
+  #theme-toggle {
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: lowercase;
+    background: none; border: 1px solid var(--line); color: var(--faint);
+    padding: 4px 11px; cursor: pointer; border-radius: 99px; line-height: 1;
+  }
+  #theme-toggle:hover { color: var(--ink); border-color: var(--faint); }
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="ZXY Ventures — It's AI Venture Crafting." />
-  <meta property="og:description" content="Agentic Venture Studio. Construimos empresas que son imposibles sin inteligencia artificial." />
-  <meta property="og:url" content="https://zxy.vc" />
-  <meta property="og:type" content="website" />
-  <meta property="og:locale" content="es_MX" />
-  <meta property="og:image" content="https://zxy.vc/assets/Pictures/giorgio-parravicini-12IHVEFRacQ-unsplash.jpg" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
+  /* ── Hero ───────────────────────────────────────────────── */
+  header.hero { padding: 104px 0 112px; }
+  .eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.26em; text-transform: uppercase; color: var(--faint); margin: 0 0 26px; }
+  .hero h1 {
+    font-size: clamp(40px, 6vw, 58px); font-weight: 300; line-height: 1.13;
+    letter-spacing: -0.03em; color: var(--dim); margin: 0; text-wrap: pretty;
+  }
+  .hero h1 b { font-weight: 500; color: var(--ink); }
+  .hero p { margin: 28px 0 0; max-width: 540px; color: var(--dim); font-weight: 300; font-size: 17px; text-wrap: pretty; }
+  .hero p b { font-weight: 500; color: var(--ink); }
+  .caret { display: inline-block; width: 0.5em; height: 0.95em; background: var(--ink); vertical-align: -0.08em; margin-left: 0.14em; }
+  @media (prefers-reduced-motion: no-preference) { .caret { animation: blink 1.1s step-end infinite; } }
+  @keyframes blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="ZXY Ventures — It's AI Venture Crafting." />
-  <meta name="twitter:description" content="Agentic Venture Studio. Construimos empresas que son imposibles sin inteligencia artificial." />
-  <meta name="twitter:image" content="https://zxy.vc/assets/Pictures/giorgio-parravicini-12IHVEFRacQ-unsplash.jpg" />
+  /* ── Secciones ──────────────────────────────────────────── */
+  section { padding: 0 0 98px; }
+  .sec-head { display: flex; align-items: baseline; gap: 16px; margin-bottom: 34px; }
+  .sec-head .num { font-family: var(--mono); font-size: 11px; color: var(--faint); }
+  .sec-head h2 { font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: var(--ink); margin: 0; }
+  .sec-head .rule { flex: 1; border-top: 1px solid var(--line); align-self: center; }
+  .lead { font-size: 26px; font-weight: 300; letter-spacing: -0.015em; line-height: 1.35; margin: 0 0 14px; max-width: 640px; text-wrap: pretty; }
+  .lead b { font-weight: 500; }
+  .body-sm { color: var(--dim); font-weight: 300; max-width: 560px; margin: 0; }
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  /* ── Registro (filas · hairlines · §10) ─────────────────── */
+  .registry { margin-top: 36px; }
+  .row { display: grid; align-items: baseline; gap: 18px; padding: 13px 0; border-top: 1px solid var(--line); }
+  .row:last-child { border-bottom: 1px solid var(--line); }
+  .row .idx { font-family: var(--mono); font-size: 11px; color: var(--faint); }
+  .row .name { font-size: 16px; font-weight: 500; letter-spacing: -0.01em; white-space: nowrap; }
+  .row .name a { text-decoration-color: var(--line); }
+  .row .desc { font-size: 13px; color: var(--dim); font-weight: 300; }
+  .row .st { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); text-align: right; white-space: nowrap; }
+  .row .st.live { color: var(--ink); }
+  .dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; vertical-align: 1px; margin-right: 8px; }
 
-  <!-- Preload hero image -->
-  <link rel="preload" as="image" href="assets/Pictures/giorgio-parravicini-12IHVEFRacQ-unsplash.webp" />
+  /* nosotros — dos co-founders al mismo nivel (§5) */
+  .team .row { grid-template-columns: 28px 150px 1fr 90px; }
+  .team .kind { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--faint); text-align: right; }
 
-  <!-- GitHub Pages SPA: decode redirect from 404.html -->
-  <script>
-    (function(){
-      var r=window.location.search.slice(1);
-      if(r.indexOf('/')===0||r[0]==='/'){
-        var decoded=r.slice(1).replace(/&/,'?');
-        window.history.replaceState(null,null,decoded||(window.location.pathname));
-      }
-    })();
-  </script>
-  <!-- Anti-flash -->
-  <script>(function(){var t=localStorage.getItem('zxy-theme');document.documentElement.setAttribute('data-theme',t||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'));})();</script>
-  <link rel="stylesheet" href="style.css?v=final4" />
+  /* flota — mismo registro, casi el mismo peso que los humanos */
+  .fleet-head { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--faint); margin: 44px 0 0; }
+  .registry.agents { margin-top: 14px; }
 
-  <!-- Anti-flash: aplica tema antes del primer render -->
-  <script>
-    (function() {
-      var stored = localStorage.getItem('zxy-theme');
-      var theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-      document.documentElement.setAttribute('data-theme', theme);
-    })();
-  </script>
+  /* ventures — registro, no cards (§7) */
+  .ventures .row { grid-template-columns: 28px 172px 1fr 118px; }
+
+  /* ── Contacto — dos puertas, correo único (§7) ──────────── */
+  .contact { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 34px; }
+  .contact h3 { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--faint); font-weight: 500; margin: 0 0 12px; }
+  .contact p { font-size: 18px; font-weight: 300; line-height: 1.45; margin: 0 0 14px; letter-spacing: -0.01em; text-wrap: pretty; }
+  .contact a { font-family: var(--mono); font-size: 12px; }
+
+  /* ── Footer ─────────────────────────────────────────────── */
+  footer { border-top: 1px solid var(--line); }
+  .foot-inner { display: flex; justify-content: space-between; align-items: baseline; padding: 26px 0 60px; font-family: var(--mono); font-size: 11px; color: var(--faint); flex-wrap: wrap; gap: 10px; }
+  .foot-inner .left b { color: var(--dim); font-weight: 500; }
+  .foot-inner .sig { letter-spacing: 0.14em; }
+  .foot-inner .sig b { color: var(--dim); font-weight: 500; }
+
+  @media (max-width: 640px) {
+    .container { padding: 0 24px; }
+    .nav-links { display: none; }
+    .ventures .row { grid-template-columns: 24px 1fr 108px; }
+    .ventures .row .desc { display: none; }
+    .team .row { grid-template-columns: 24px 1fr 84px; }
+    .team .row .desc { display: none; }
+    .contact { grid-template-columns: 1fr; gap: 32px; }
+  }
+</style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav>
-    <div class="nav-inner">
-      <a href="/" class="nav-logo"><img src="assets/ZXY%20Logos/ZXY_Ventures_Logo_02_White.svg" style="display:block;width:136px;height:26px;" alt="ZXY Ventures" /></a>
-      <ul class="nav-links">
-        <li><a href="#nosotros"><span data-es="Nosotros" data-en="About">Nosotros</span></a></li>
-        <li><a href="#agente">Agent OS</a></li>
-        <li><a href="#ventures">Ventures</a></li>
-        <li><a href="#research">Research</a></li>
-        <li><a href="#contacto" class="nav-cta"><span data-es="Trabaja con nosotros" data-en="Work with us">Trabaja con nosotros</span></a></li>
-      </ul>
-      <button class="lang-toggle" aria-label="Cambiar idioma">ES</button>
-      <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema"></button>
-      <button class="nav-hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
-
-  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-    <a href="#nosotros" class="mobile-link"><span data-es="Nosotros" data-en="About">Nosotros</span></a>
-    <a href="#agente" class="mobile-link">Agent OS</a>
-    <a href="#ventures" class="mobile-link">Ventures</a>
-    <a href="#research" class="mobile-link">Research</a>
-    <a href="#contacto" class="nav-cta"><span data-es="Trabaja con nosotros" data-en="Work with us">Trabaja con nosotros</span></a>
-    <div style="display:flex;gap:8px;padding:12px 24px 4px;">
-      <button class="lang-toggle" aria-label="Cambiar idioma">ES</button>
-      <button id="theme-toggle-mobile" class="theme-toggle" aria-label="Cambiar tema"></button>
+<nav data-screen-label="Nav">
+  <div class="container nav-inner">
+    <a class="wordmark" href="#top"><b>ZXY</b> <span>Ventures</span></a>
+    <div class="nav-right">
+      <div class="nav-links">
+        <a href="#nosotros">nosotros</a>
+        <a href="#ventures">ventures</a>
+        <a href="#contacto">contacto</a>
+      </div>
+      <button id="theme-toggle" type="button" aria-label="cambiar tema">dark</button>
     </div>
   </div>
+</nav>
 
-  <!-- HERO -->
-  <section id="hero">
-    <div class="hero-overlay"></div>
-    <div class="container hero-content">
-      <div class="hero-inner">
-        <div class="hero-eyebrow fade-in">Agentic Venture Studio · México · LatAm</div>
-        <h1 class="hero-headline fade-in fade-in-1">
-          It's not<br>Venture Capital.<br>
-          <span class="accent-text">It's AI Venture Crafting.</span>
-        </h1>
-        <p class="hero-sub fade-in fade-in-2" data-es="La diferencia entre usar IA y ser IA.<br>ZXY construye ventures que son agentic desde el primer día." data-en="The difference between using AI and being AI.<br>ZXY builds ventures that are agentic from day one.">
-          La diferencia entre usar IA y ser IA.<br>
-          ZXY construye ventures que son agentic desde el primer día.
-        </p>
-        <div class="hero-ctas fade-in fade-in-3">
-          <a href="#ventures" class="btn-primary" data-es="Ver Ventures" data-en="See Ventures">Ver Ventures</a>
-          <a href="#agente" class="btn-secondary" data-es="Conocer Agent OS →" data-en="Meet Agent OS →">Conocer Agent OS →</a>
-        </div>
+<div class="container" id="top">
+
+  <header class="hero" data-screen-label="Hero">
+    <p class="eyebrow">venture crafting</p>
+    <h1>We <b>build</b>, <b>operate</b>, and <b>create&nbsp;value</b> with AI.<span class="caret"></span></h1>
+    <p>Construimos y operamos compañías que son imposibles sin inteligencia artificial. La diferencia entre usar IA y <b>ser IA</b>.</p>
+  </header>
+
+  <section id="nosotros" data-screen-label="01 Nosotros">
+    <div class="sec-head"><span class="num">01</span><h2>Nosotros</h2><span class="rule"></span></div>
+    <p class="lead">Dos fundadores y una flota de agentes. Operamos cada compañía con <b>el mismo sistema que vendemos</b>.</p>
+    <div class="registry team">
+      <div class="row">
+        <span class="idx">·</span>
+        <span class="name">Fran Durán</span>
+        <span class="desc">co-founder &amp; ceo — arquitecto; producto, método y estrategia</span>
+        <span class="kind">humano</span>
+      </div>
+      <div class="row">
+        <span class="idx">·</span>
+        <span class="name">Mau Durán</span>
+        <span class="desc">co-founder &amp; coo — negocio y finanzas; operación y relaciones</span>
+        <span class="kind">humano</span>
+      </div>
+    </div>
+    <p class="fleet-head" data-screen-label="Flota">zxy agent os · flota de agentes</p>
+    <div class="registry team agents">
+      <div class="row">
+        <span class="idx">·</span>
+        <span class="name">Héctor</span>
+        <span class="desc">board &amp; operating partner</span>
+        <span class="kind">agente</span>
+      </div>
+      <div class="row">
+        <span class="idx">·</span>
+        <span class="name">Hugo</span>
+        <span class="desc">chief of staff de fran — orquesta la flota</span>
+        <span class="kind">agente</span>
+      </div>
+      <div class="row">
+        <span class="idx">·</span>
+        <span class="name">Bernard</span>
+        <span class="desc">chief of staff de mau</span>
+        <span class="kind">agente</span>
+      </div>
+      <div class="row">
+        <span class="idx">·</span>
+        <span class="name">Beto</span>
+        <span class="desc">finanzas y control</span>
+        <span class="kind">agente</span>
+      </div>
+      <div class="row">
+        <span class="idx">·</span>
+        <span class="name">Maribel</span>
+        <span class="desc">legal y gobierno corporativo</span>
+        <span class="kind">agente</span>
+      </div>
+      <div class="row">
+        <span class="idx">·</span>
+        <span class="name">Andrés</span>
+        <span class="desc">tech lead — producto e infraestructura</span>
+        <span class="kind">agente</span>
+      </div>
+      <div class="row">
+        <span class="idx">·</span>
+        <span class="name">Rafa</span>
+        <span class="desc">research y validación</span>
+        <span class="kind">agente</span>
+      </div>
+      <div class="row">
+        <span class="idx">·</span>
+        <span class="name">Luis</span>
+        <span class="desc">growth y go-to-market</span>
+        <span class="kind">agente</span>
+      </div>
+      <div class="row">
+        <span class="idx">·</span>
+        <span class="name">Alicia</span>
+        <span class="desc">venture operator — baw os</span>
+        <span class="kind">agente</span>
       </div>
     </div>
   </section>
 
-
-
-  <!-- NOSOTROS -->
-  <section id="nosotros" class="section">
-    <div class="container">
-      <div class="section-header fade-in">
-        <div class="section-label" data-es="Las personas detrás" data-en="The people behind">Las personas detrás</div>
-        <h2 class="section-title" data-es="Quiénes somos" data-en="Who we are">Quiénes somos</h2>
-        <p class="section-sub" data-es="Un arquitecto visionario y un equipo creciente de agentes especializados — servicios compartidos para todos los ventures, más operadores dedicados por negocio." data-en="A visionary architect and a growing team of specialized agents — shared services for all ventures, plus dedicated operators per business.">Un arquitecto visionario y un equipo creciente de agentes especializados — servicios compartidos para todos los ventures, más operadores dedicados por negocio.</p>
+  <section id="ventures" data-screen-label="02 Ventures">
+    <div class="sec-head"><span class="num">02</span><h2>Ventures</h2><span class="rule"></span></div>
+    <p class="lead">Cada compañía lidera en su carril. ZXY provee <b>método, agentes y capital</b>.</p>
+    <div class="registry ventures">
+      <div class="row">
+        <span class="idx">01</span>
+        <span class="name"><span class="dot" style="background: var(--engrane);"></span><a href="https://engrane.ai" target="_blank" rel="noopener">Engrane AI</a></span>
+        <span class="desc">company brain y ai operators para pymes</span>
+        <span class="st">construyendo</span>
       </div>
-      <div class="equipo-grid">
-        <div class="equipo-card fade-in">
-          <div class="equipo-card-top">
-            <div class="equipo-avatar-wrap">
-              <img src="assets/agents/fran.jpg" alt="Fran Durán" loading="lazy" width="72" height="72" />
-            </div>
-            <div>
-              <div class="equipo-name">Fran Durán</div>
-              <div class="equipo-role">Founder &amp; CEO</div>
-            </div>
-          </div>
-          <p class="equipo-bio" data-es="Arquitecto de formación, Venture Crafter por convicción. Fundador y CEO de ZXY Ventures — el primer Agentic Venture Studio de LatAm." data-en="Architect turned Venture Crafter. Founder &amp; CEO of ZXY Ventures — LatAm's first Agentic Venture Studio.">
-            Arquitecto de formación, Venture Crafter por convicción. Fundador y CEO de ZXY Ventures — el primer Agentic Venture Studio de LatAm. 12+ años construyendo ecosistemas de innovación en México. Alumni Singularity University. Docente en el Tec de Monterrey. Su tesis: las empresas que definirán el futuro no usarán IA — serán IA desde el primer día. Eso es el ZXYFuture.
-          </p>
-          <div class="equipo-links">
-            <a href="https://franduran.com" target="_blank" rel="noopener" class="equipo-link">franduran.com</a>
-          </div>
-        </div>
-
-        <div class="equipo-card equipo-card-os fade-in fade-in-1">
-          <div class="equipo-card-top">
-            <div class="equipo-avatar-wrap equipo-avatar-os">
-              <span>OS</span>
-            </div>
-            <div>
-              <div class="equipo-name">Agent OS</div>
-              <div class="equipo-role" style="display:flex;align-items:center;gap:6px;">
-                <span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:#22c55e;box-shadow:0 0 6px #22c55e;flex-shrink:0;"></span>
-                <span data-es="Sistema Activo · 24/7" data-en="System Active · 24/7">Sistema Activo · 24/7</span>
-              </div>
-            </div>
-          </div>
-          <p class="equipo-bio" data-es="Infraestructura operativa de ZXY. Agentes especializados — cada uno con dominio propio, memoria persistente y herramientas de ejecución. No contratan. No descansan. No fallan." data-en="ZXY's operational infrastructure. Specialized agents — each with their own domain, persistent memory, and execution tools. They don't hire. They don't rest. They don't fail.">
-            Infraestructura operativa de ZXY. Agentes especializados — cada uno con dominio propio, memoria persistente y herramientas de ejecución. No contratan. No descansan. No fallan.
-          </p>
-          <div class="equipo-links">
-            <a href="#agente" class="equipo-link" data-es="Ver el sistema →" data-en="See the system →">Ver el sistema →</a>
-          </div>
-        </div>
+      <div class="row">
+        <span class="idx">02</span>
+        <span class="name"><span class="dot" style="background: var(--baw);"></span><a href="https://baw.zxy.vc" target="_blank" rel="noopener">BaW OS</a></span>
+        <span class="desc">property management ai-native</span>
+        <span class="st live">operando</span>
       </div>
     </div>
   </section>
 
-  <!-- SEPARATOR -->
-  <div class="separator" style="background-image:url('assets/Pictures/milad-fakurian-SwEugqgu3xI-unsplash.webp')">
-    <div class="separator-overlay"></div>
+  <section id="contacto" data-screen-label="03 Contacto">
+    <div class="sec-head"><span class="num">03</span><h2>Contacto</h2><span class="rule"></span></div>
+    <div class="contact">
+      <div>
+        <h3>Operadores y founders</h3>
+        <p>Construimos compañías a partir de problemas reales.</p>
+        <a href="mailto:hey@zxy.vc?subject=Un%20problema%20que%20resolver">enviar un problema →</a>
+      </div>
+      <div>
+        <h3>Inversores y partners</h3>
+        <p>Mostramos números, no decks.</p>
+        <a href="mailto:hey@zxy.vc?subject=Portafolio">hablar de portafolio →</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer data-screen-label="Footer">
+  <div class="container foot-inner">
+    <span class="left"><b>ZXY Ventures</b> · méxico · latam · © 2026</span>
+    <span class="sig">built on <b>zxy</b></span>
   </div>
+</footer>
 
-  <!-- AGENT OS -->
-  <section id="agente" class="section section-alt">
-    <div class="container">
-      <div class="section-header fade-in">
-        <div class="section-label" data-es="Infraestructura Propietaria" data-en="Proprietary Infrastructure">Infraestructura Propietaria</div>
-        <h2 class="section-title" data-es="Agent OS —&lt;br&gt;El Equipo que Nadie Más Tiene" data-en="Agent OS —&lt;br&gt;The Team Nobody Else Has">Agent OS —<br>El Equipo que Nadie Más Tiene</h2>
-        <p class="section-label" style="margin-top:-8px;margin-bottom:8px;font-size:13px;" data-es="El sistema que no olvida." data-en="The system that never forgets.">El sistema que no olvida.</p>
-        <p class="section-sub" data-es="Agentes de servicios compartidos disponibles en cualquier venture desde el día cero, más operadores dedicados que nacen con cada negocio. No contratan. No descansan." data-en="Shared-service agents available in any venture from day zero, plus dedicated operators that are born with each business. They don't hire. They don't rest.">Agentes de servicios compartidos disponibles en cualquier venture desde el día cero, más operadores dedicados que nacen con cada negocio. No contratan. No descansan.</p>
-      </div>
-      <div class="agent-grid">
-        <div class="agent-card fade-in">
-          <div class="agent-avatar"><img src="assets/agents/hugo.png" alt="Hugo — Chief of Staff, Coordinación &amp; Ops" loading="lazy" width="64" height="64" /></div>
-          <div class="agent-name">Hugo</div>
-          <div class="agent-role">Chief of Staff</div>
-          <div class="agent-spec">Coordination &amp; Ops</div>
-        </div>
-        <div class="agent-card fade-in fade-in-1">
-          <div class="agent-avatar"><img src="assets/agents/rafa.png" alt="Rafa — Research e Inteligencia de Mercado" loading="lazy" width="64" height="64" /></div>
-          <div class="agent-name">Rafa</div>
-          <div class="agent-role">Research</div>
-          <div class="agent-spec">Market Intelligence</div>
-        </div>
-        <div class="agent-card fade-in fade-in-2">
-          <div class="agent-avatar"><img src="assets/agents/andres.png" alt="Andrés — Arquitectura Legal y Estructuras" loading="lazy" width="64" height="64" /></div>
-          <div class="agent-name">Andrés</div>
-          <div class="agent-role">Build</div>
-          <div class="agent-spec">Code &amp; Tech</div>
-        </div>
-        <div class="agent-card fade-in fade-in-3">
-          <div class="agent-avatar"><img src="assets/agents/luis.png" alt="Luis — Growth, Contenido &amp; Canales" loading="lazy" width="64" height="64" /></div>
-          <div class="agent-name">Luis</div>
-          <div class="agent-role">Growth</div>
-          <div class="agent-spec">Content &amp; Channels</div>
-        </div>
-        <div class="agent-card fade-in">
-          <div class="agent-avatar"><img src="assets/agents/maribel.png" alt="Maribel — Legal, Contratos &amp; Compliance" loading="lazy" width="64" height="64" /></div>
-          <div class="agent-name">Maribel</div>
-          <div class="agent-role">Legal</div>
-          <div class="agent-spec">Contracts &amp; Compliance</div>
-        </div>
-        <div class="agent-card fade-in fade-in-1">
-          <div class="agent-avatar"><img src="assets/agents/beto.png" alt="Beto — Finanzas &amp; Unit Economics (ContaBeto)" loading="lazy" width="64" height="64" /></div>
-          <div class="agent-name">Beto</div>
-          <div class="agent-role">Finance</div>
-          <div class="agent-spec">Unit Economics</div>
-        </div>
-        <div class="agent-card agent-card-baw fade-in fade-in-2">
-          <div class="agent-avatar"><img src="assets/agents/alicia.png" alt="Alicia — COO BaW" loading="lazy" width="64" height="64" /></div>
-          <div class="agent-name">Alicia</div>
-          <div class="agent-role">COO</div>
-          <div class="agent-spec">BaW Operations</div>
-          <div class="agent-badge-baw" data-es="Operador de Venture" data-en="Venture Operator">Operador de Venture</div>
-        </div>
-      </div>
-      <div class="agente-quote fade-in">
-        <p data-es="No construimos startups con IA.&lt;br&gt;Construimos startups que &lt;strong&gt;son&lt;/strong&gt; IA." data-en="We don't build startups with AI.&lt;br&gt;We build startups that &lt;strong&gt;are&lt;/strong&gt; AI.">No construimos startups con IA.<br>Construimos startups que <strong>son</strong> IA.</p>
-      </div>
-    </div>
-  </section>
+<script>
+  (function () {
+    var root = document.documentElement;
+    var btn = document.getElementById('theme-toggle');
+    function sync() { btn.textContent = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'; }
+    sync();
+    btn.addEventListener('click', function () {
+      var dark = root.getAttribute('data-theme') === 'dark';
+      if (dark) { root.removeAttribute('data-theme'); } else { root.setAttribute('data-theme', 'dark'); }
+      try { localStorage.setItem('zxy-theme', dark ? 'light' : 'dark'); } catch (e) {}
+      sync();
+    });
+  })();
+</script>
 
-  <!-- SEPARATOR -->
-  <div class="separator" style="background-image:url('assets/Pictures/david-east-6psstU2DLKs-unsplash.webp')">
-    <div class="separator-overlay"></div>
-  </div>
-
-  <!-- VENTURES -->
-  <section id="ventures" class="section">
-    <div class="container">
-      <div class="section-header fade-in">
-        <div class="section-label" data-es="Portfolio" data-en="Portfolio">Portfolio</div>
-        <h2 class="section-title" data-es="Ventures ZXY" data-en="ZXY Ventures">Ventures ZXY</h2>
-        <p class="section-sub" data-es="Problemas reales, soluciones agénticas. Cada venture nace de investigación rigurosa y opera con Agent OS desde el día cero." data-en="Real problems, agentic solutions. Each venture is born from rigorous research and operates with Agent OS from day zero.">Problemas reales, soluciones agénticas. Cada venture nace de investigación rigurosa y opera con Agent OS desde el día cero.</p>
-      </div>
-      <div class="ventures-grid">
-
-        <div class="venture-card fade-in">
-          <div class="venture-top">
-            <span class="venture-sector">PropTech · Agent OS Lab</span>
-            <span class="badge badge-live" role="status" data-es="OPERANDO" data-en="LIVE">OPERANDO</span>
-          </div>
-          <div class="venture-name">BaW</div>
-          <div class="venture-tagline" data-es="Design Partner #1 · BaW Design Lab" data-en="Design Partner #1 · BaW Design Lab">Design Partner #1 · BaW Design Lab</div>
-          <div class="venture-block">
-            <div class="venture-block-label" data-es="Qué es" data-en="What it is">Qué es</div>
-            <p data-es="Nuestro laboratorio de property management operado por agentes de IA. BaW no usa software externo — construye, opera y documenta su propio sistema desde adentro." data-en="Our property management lab operated by AI agents. BaW doesn't use external software — it builds, operates and documents its own system from the inside.">Nuestro laboratorio de property management operado por agentes de IA. BaW no usa software externo — construye, opera y documenta su propio sistema desde adentro.</p>
-          </div>
-          <div class="venture-block venture-block-solution">
-            <div class="venture-block-label" data-es="Lo que produce" data-en="What it produces">Lo que produce</div>
-            <p data-es="BaW OS — property management system AI-native para STR, MTR y LTR. Si funciona en BaW, funciona en el mercado." data-en="BaW OS — AI-native property management system for STR, MTR and LTR. If it works in BaW, it works in the market.">BaW OS — property management system AI-native para STR, MTR y LTR. Si funciona en BaW, funciona en el mercado.</p>
-          </div>
-          <div class="venture-footer">
-            <a href="https://baw.zxy.vc" target="_blank" rel="noopener" class="venture-link">baw.zxy.vc →</a>
-            <span class="venture-lab-note" data-es="El lab que hace posibles los demás ventures" data-en="The lab that makes other ventures possible">El lab que hace posibles los demás ventures</span>
-          </div>
-        </div>
-
-        <div class="venture-card fade-in fade-in-1">
-          <div class="venture-top">
-            <span class="venture-sector">AI Agents · Chief of Staff</span>
-            <span class="badge badge-live" role="status" data-es="OPERANDO" data-en="LIVE">OPERANDO</span>
-          </div>
-          <div class="venture-name">ZXY Agents</div>
-          <div class="venture-tagline" data-es="Tu Chief of Staff digital por WhatsApp" data-en="Your digital Chief of Staff on WhatsApp">Tu Chief of Staff digital por WhatsApp</div>
-          <div class="venture-block">
-            <div class="venture-block-label" data-es="Qué es" data-en="What it is">Qué es</div>
-            <p data-es="Agentes de IA personalizados para CEOs y founders. Tu propio agente con personalidad y memoria, accesible vía WhatsApp. Desde $199/mes." data-en="Custom AI agents for CEOs and founders. Your own agent with personality and memory, accessible via WhatsApp. From $199/mo.">Agentes de IA personalizados para CEOs y founders. Tu propio agente con personalidad y memoria, accesible vía WhatsApp. Desde $199/mes.</p>
-          </div>
-          <div class="venture-footer">
-            <a href="https://agents.zxy.vc" target="_blank" rel="noopener" class="venture-link">agents.zxy.vc →</a>
-            <span class="venture-lab-note" data-es="Construido con nuestra experiencia operando Agent OS internamente" data-en="Built from our experience running Agent OS internally">Construido con nuestra experiencia operando Agent OS internamente</span>
-          </div>
-        </div>
-
-        <div class="venture-card fade-in fade-in-2">
-          <div class="venture-top">
-            <span class="venture-sector">FinTech · Contador AI</span>
-            <span class="badge badge-building" role="status" data-es="EN DES" data-en="IN DEV">EN DES</span>
-          </div>
-          <div class="venture-name">ContaBeto</div>
-          <div class="venture-tagline" data-es="Agente de Contabilidad" data-en="Accounting Agent">Agente de Contabilidad</div>
-          <div class="venture-block">
-            <div class="venture-block-label" data-es="Problema" data-en="Problem">Problema</div>
-            <p data-es="Las PyMEs pagan $3,000–15,000 MXN/mes a contadores para tareas 90% repetitivas." data-en="SMBs pay $3,000–15,000 MXN/month to accountants for 90% repetitive tasks.">Las PyMEs pagan $3,000–15,000 MXN/mes a contadores para tareas 90% repetitivas.</p>
-          </div>
-          <div class="venture-block venture-block-solution">
-            <div class="venture-block-label" data-es="Solución agéntica" data-en="Agentic Solution">Solución agéntica</div>
-            <p data-es="Agente de contabilidad por WhatsApp — declaraciones, CFDI y compliance fiscal autónomo." data-en="WhatsApp accounting agent — tax returns, CFDI and autonomous tax compliance.">Agente de contabilidad por WhatsApp — declaraciones, CFDI y compliance fiscal autónomo.</p>
-          </div>
-          <div class="venture-footer">
-            <a href="https://contabeto.zxy.vc" target="_blank" rel="noopener" class="venture-link">contabeto.zxy.vc →</a>
-          </div>
-        </div>
-
-        <div class="venture-card fade-in fade-in-2">
-          <div class="venture-top">
-            <span class="venture-sector">LegalTech · Compliance SAT</span>
-            <span class="badge badge-building" role="status" data-es="EN DES" data-en="IN DEV">EN DES</span>
-          </div>
-          <div class="venture-name">AudiBot</div>
-          <div class="venture-tagline" data-es="Compliance SAT Autónomo" data-en="Autonomous SAT Compliance">Compliance SAT Autónomo</div>
-          <div class="venture-block">
-            <div class="venture-block-label" data-es="Problema" data-en="Problem">Problema</div>
-            <p data-es="El SAT lanzó FISCALIA 2.0 — +300% auditorías para 2026. Las PyMEs no lo saben hasta que es tarde." data-en="The SAT launched FISCALIA 2.0 — +300% audits for 2026. SMBs don't know until it's too late.">El SAT lanzó FISCALIA 2.0 — +300% auditorías para 2026. Las PyMEs no lo saben hasta que es tarde.</p>
-          </div>
-          <div class="venture-block venture-block-solution">
-            <div class="venture-block-label" data-es="Solución agéntica" data-en="Agentic Solution">Solución agéntica</div>
-            <p data-es="Agente que verifica el 69-B, analiza CFDIs y entrega reporte semanal de riesgo fiscal." data-en="Agent that verifies the 69-B list, analyzes CFDIs and delivers weekly fiscal risk report.">Agente que verifica el 69-B, analiza CFDIs y entrega reporte semanal de riesgo fiscal.</p>
-          </div>
-          <div class="venture-footer">
-            <a href="https://audibot.zxy.vc" target="_blank" rel="noopener" class="venture-link">audibot.zxy.vc →</a>
-          </div>
-        </div>
-
-        <div class="venture-card fade-in">
-          <div class="venture-top">
-            <span class="venture-sector">LegalTech · Contratos</span>
-            <span class="badge badge-building" role="status" data-es="EN DES" data-en="IN DEV">EN DES</span>
-          </div>
-          <div class="venture-name">ContratosAI</div>
-          <div class="venture-tagline" data-es="Contratos Válidos en Minutos" data-en="Contracts Valid in Minutes">Contratos Válidos en Minutos</div>
-          <div class="venture-block">
-            <div class="venture-block-label" data-es="Problema" data-en="Problem">Problema</div>
-            <p>4.9M PyMEs sin contratos formales. Un abogado cobra $15,000 MXN por un contrato estándar.</p>
-          </div>
-          <div class="venture-block venture-block-solution">
-            <div class="venture-block-label" data-es="Solución agéntica" data-en="Agentic Solution">Solución agéntica</div>
-            <p data-es="Agente conversacional que genera contratos válidos en México en minutos." data-en="Conversational agent that generates valid contracts in Mexico in minutes.">Agente conversacional que genera contratos válidos en México en minutos.</p>
-          </div>
-          <div class="venture-footer">
-            <a href="https://contratos.zxy.vc" target="_blank" rel="noopener" class="venture-link">contratos.zxy.vc →</a>
-          </div>
-        </div>
-
-        <div class="venture-card fade-in fade-in-1">
-          <div class="venture-top">
-            <span class="venture-sector" data-es="EdTech · Capacitación AI" data-en="EdTech · AI Training">EdTech · Capacitación AI</span>
-            <span class="badge badge-building" role="status" data-es="EN DES" data-en="IN DEV">EN DES</span>
-          </div>
-          <div class="venture-name">SkillAgent</div>
-          <div class="venture-tagline" data-es="Tutor AI por Empleado" data-en="AI Tutor per Employee">Tutor AI por Empleado</div>
-          <div class="venture-block">
-            <div class="venture-block-label" data-es="Problema" data-en="Problem">Problema</div>
-            <p data-es="91% de empresas con AI reportan crecimiento. Solo 16% de empleados LatAm la usan diariamente." data-en="91% of companies with AI report growth. Only 16% of LatAm employees use it daily.">91% de empresas con AI reportan crecimiento. Solo 16% de empleados LatAm la usan diariamente.</p>
-          </div>
-          <div class="venture-block venture-block-solution">
-            <div class="venture-block-label" data-es="Solución agéntica" data-en="Agentic Solution">Solución agéntica</div>
-            <p data-es="Tutor AI personalizado por empleado. Currículo adaptativo. Certificados." data-en="Personalized AI tutor per employee. Adaptive curriculum. Certificates.">Tutor AI personalizado por empleado. Currículo adaptativo. Certificados.</p>
-          </div>
-          <div class="venture-footer">
-            <a href="https://skill.zxy.vc" target="_blank" rel="noopener" class="venture-link">skill.zxy.vc →</a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- PIPELINE -->
-  <section id="pipeline" class="section section-alt">
-    <div class="container">
-      <div class="section-header fade-in">
-        <div class="section-label">Venture Pipeline</div>
-        <h2 class="section-title" data-es="Ideas en evaluación" data-en="Ideas in Evaluation">Ideas en evaluación</h2>
-        <p class="section-sub" data-es="Transparencia total — aquí el pipeline vivo de ideas que estamos analizando, validando y construyendo. Cada venture activo empezó aquí." data-en="Total transparency — here is the live pipeline of ideas we are analyzing, validating, and building. Every active venture started here.">Transparencia total — aquí el pipeline vivo de ideas que estamos analizando, validando y construyendo. Cada venture activo empezó aquí.</p>
-      </div>
-      <div class="pipeline-stages fade-in">
-        <div class="pipeline-stage">
-          <div class="pipeline-stage-label">Signal</div>
-          <div class="pipeline-stage-sub">Problema identificado</div>
-        </div>
-        <div class="pipeline-arrow">→</div>
-        <div class="pipeline-stage">
-          <div class="pipeline-stage-label">Thesis</div>
-          <div class="pipeline-stage-sub" data-es="Hipótesis formulada" data-en="Hypothesis formulated">Hipótesis formulada</div>
-        </div>
-        <div class="pipeline-arrow">→</div>
-        <div class="pipeline-stage">
-          <div class="pipeline-stage-label">Validation</div>
-          <div class="pipeline-stage-sub">Customer discovery</div>
-        </div>
-        <div class="pipeline-arrow">→</div>
-        <div class="pipeline-stage pipeline-stage-active">
-          <div class="pipeline-stage-label">Build</div>
-          <div class="pipeline-stage-sub">MVP con Agent OS</div>
-        </div>
-        <div class="pipeline-arrow">→</div>
-        <div class="pipeline-stage pipeline-stage-active">
-          <div class="pipeline-stage-label">Live</div>
-          <div class="pipeline-stage-sub">En mercado</div>
-        </div>
-      </div>
-      <div class="pipeline-cta fade-in">
-        <p data-es="Ver el pipeline completo en Notion →" data-en="See the full pipeline on Notion →">Ver el pipeline completo en Notion →</p>
-        <a href="https://zxyventures.notion.site/ebd//30f169373e72819b8717e906e61e7dfb?v=327169373e72803bac51000c39072014" target="_blank" rel="noopener noreferrer" class="btn-secondary" data-es="Ver Pipeline" data-en="See Pipeline">Ver Pipeline <svg class="ext-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- RESEARCH -->
-  <section id="research" class="section section-alt">
-    <div class="container">
-      <div class="section-header fade-in">
-        <div class="section-label">Evidencia &amp; Frameworks</div>
-        <h2 class="section-title" data-es="Actuamos con evidencia" data-en="We Act on Evidence">Actuamos con evidencia</h2>
-        <p class="section-sub" data-es="No construimos sobre intuición. Cada venture pasa por investigación rigurosa antes de recibir un Go." data-en="We don't build on intuition. Every venture goes through rigorous research before getting a Go.">No construimos sobre intuición. Cada venture pasa por investigación rigurosa antes de recibir un Go.</p>
-      </div>
-      <div class="research-grid">
-        <div class="research-card fade-in">
-          <div class="research-icon" aria-hidden="true">📊</div>
-          <div class="research-title">ZXY Big Ideas 2026</div>
-          <p class="research-desc" data-es="Las oportunidades más grandes en Agentic Venture Building en LatAm. El mapa de lo que viene." data-en="The biggest opportunities in Agentic Venture Building in LatAm. The map of what's coming.">Las oportunidades más grandes en Agentic Venture Building en LatAm. El mapa de lo que viene.</p>
-          <a href="https://gamma.app/docs/tur9lri83bup50j" target="_blank" rel="noopener noreferrer" class="research-link"><span data-es="Leer reporte →" data-en="Read report →">Leer reporte →</span> <svg class="ext-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
-        </div>
-        <div class="research-card fade-in fade-in-1">
-          <div class="research-icon" aria-hidden="true">🌎</div>
-          <div class="research-title">LatAm Venture Landscape</div>
-          <p class="research-desc" data-es="$4.1B en 681 deals. México liderando con 25.5% del capital regional. El ecosistema en números." data-en="$4.1B in 681 deals. Mexico leading with 25.5% of regional capital. The ecosystem by the numbers.">$4.1B en 681 deals. México liderando con 25.5% del capital regional. El ecosistema en números.</p>
-          <span class="research-no-link" data-es="Reporte interno — próximamente público" data-en="Internal report — coming public soon">Reporte interno — próximamente público</span>
-        </div>
-        <div class="research-card fade-in fade-in-2">
-          <div class="research-icon" aria-hidden="true">⚙️</div>
-          <div class="research-title">The ANVB Framework</div>
-          <p class="research-desc" data-es="El primer framework de venture building diseñado para la era de los agentes. Agentic Native Venture Building." data-en="The first venture building framework designed for the age of agents. Agentic Native Venture Building.">El primer framework de venture building diseñado para la era de los agentes. Agentic Native Venture Building.</p>
-          <a href="https://gamma.app/docs/jbcl3zox6v5nn73" target="_blank" rel="noopener noreferrer" class="research-link"><span data-es="Ver framework →" data-en="View framework →">Ver framework →</span> <svg class="ext-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA FINAL -->
-  <section id="contacto" class="section cta-final">
-    <div class="container">
-      <div class="cta-grid fade-in">
-        <div class="cta-card">
-          <span class="cta-label" data-es="PARA OPERADORES Y FOUNDERS" data-en="FOR OPERATORS & FOUNDERS">PARA OPERADORES Y FOUNDERS</span>
-          <h3 class="cta-heading" data-es="¿Tienes un problema que vale la pena resolver?" data-en="Got a problem worth solving?">¿Tienes un problema que vale la pena resolver?</h3>
-          <p class="cta-desc" data-es="Construimos ventures a partir de problemas reales. Si estás cerca de uno, queremos escucharlo." data-en="We build ventures from real problems. If you're close to one, we want to hear it.">Construimos ventures a partir de problemas reales. Si estás cerca de uno, queremos escucharlo.</p>
-          <a href="mailto:hey@zxy.vc" class="btn-primary" data-es="Enviar un problema →" data-en="Submit a problem →">Enviar un problema →</a>
-        </div>
-        <div class="cta-card">
-          <span class="cta-label" data-es="PARA INVERSORES Y PARTNERS" data-en="FOR INVESTORS & PARTNERS">PARA INVERSORES Y PARTNERS</span>
-          <h3 class="cta-heading" data-es="¿Quieres entrar al portafolio?" data-en="Want to join the portfolio?">¿Quieres entrar al portafolio?</h3>
-          <p class="cta-desc" data-es="Mostramos números reales. No decks de PowerPoint." data-en="We show real numbers. No PowerPoint decks.">Mostramos números reales. No decks de PowerPoint.</p>
-          <a href="mailto:hey@zxy.vc" class="btn-primary" data-es="Habla con Fran →" data-en="Talk to Fran →">Habla con Fran →</a>
-        </div>
-      </div>
-      <p class="cta-closing fade-in" data-es="Cada venture en nuestro portafolio empezó con una conversación." data-en="Every venture in our portfolio started with a conversation.">Cada venture en nuestro portafolio empezó con una conversación.</p>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      <div class="ft-inner">
-        <div class="ft-brand">
-          <a href="/" class="ft-logo-link">
-            <img src="assets/ZXY%20Logos/ZXY_Ventures_Logo_02_White.svg" class="ft-logo-img" alt="ZXY Ventures" width="104" height="20" />
-          </a>
-          <p class="ft-tagline">Agentic Venture Studio · México · LatAm.<br><em>AI Venture Crafting para un ZXYFuture.</em></p>
-        </div>
-        <div class="ft-nav">
-          <a href="#nosotros" class="ft-link"><span data-es="Nosotros" data-en="About">Nosotros</span></a>
-          <a href="#agente" class="ft-link">Agent OS</a>
-          <a href="#ventures" class="ft-link">Ventures</a>
-          <a href="#research" class="ft-link">Research</a>
-          <a href="#contacto" class="ft-link"><span data-es="Contacto" data-en="Contact">Contacto</span></a>
-        </div>
-      </div>
-      <div class="ft-bottom">
-        <span class="ft-copy">© 2026 ZXY Ventures — <em>It's AI Venture Crafting.</em></span>
-        <span class="ft-copy"><a href="mailto:hey@zxy.vc" class="ft-email">hey@zxy.vc</a></span>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Schema.org structured data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "ZXY Ventures",
-    "alternateName": "Zone of eXponential Yields",
-    "url": "https://zxy.vc",
-    "logo": "https://zxy.vc/assets/ZXY Logos/ZXY_Ventures_Logo_02_White.svg",
-    "description": "AI Venture Crafting para un ZXYFuture Construimos empresas que son imposibles sin inteligencia artificial.",
-    "email": "hey@zxy.vc",
-    "address": {
-      "@type": "PostalAddress",
-      "addressCountry": "MX"
-    },
-    "founder": {
-      "@type": "Person",
-      "name": "Fran Durán",
-      "url": "https://franduran.com"
-    }
-  }
-  </script>
-
-
-  <script src="landing.js?v=final4"></script>
 </body>
 </html>
